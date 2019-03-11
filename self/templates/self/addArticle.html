@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="renderer" content="webkit">
+<title></title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'self/css/pintuer.css' %}">
+<link rel="stylesheet" href="{% static 'self/css/admin.css' %}">
+<script src="{% static 'self/js/jquery.js' %}"></script>
+<script src="{% static 'self/js/pintuer.js' %}"></script>
+</head>
+<body>
+<div class="panel admin-panel">
+  <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>增加内容</strong></div>
+  <div class="body-content">
+    <form method="post" class="form-x" action="/self/addArticle/">
+      {% csrf_token %}
+      <div class="form-group">
+        <div class="label">
+          <label>标题：</label>
+        </div>
+        <div class="field">
+          <!--<input type="text" class="input w50" value="" name="title" data-validate="required:请输入标题" />-->   {{form.title}}
+          <div class="tips"></div>
+        </div>
+      </div>
+
+      <if condition="$iscid eq 1">
+        <div class="form-group">
+          <div class="label">
+            <label>分类：</label>
+          </div>
+          <div class="field">
+            <!--<select name="cid" class="input w50">-->
+              <!--<option value="">请选择分类</option>-->
+            <!--</select>-->{{form.c}}
+            <div class="tips"></div>
+          </div>
+        </div>
+      </if>
+      <if condition="$iscid eq 1">
+        <div class="form-group">
+          <div class="label">
+            <label>关键字：</label>
+          </div>
+          <div class="field">
+            <!--<select name="cid" class="input w50">-->
+              <!--<option value="">请选择关键字</option>-->
+            <!--</select>-->{{form.k}}
+            <div class="tips"></div>
+          </div>
+        </div>
+      </if>
+      <div class="form-group">
+        <div class="label">
+          <label>内容：</label>
+        </div>
+        <div class="field">
+          <!--<textarea name="content" class="input" style="height:450px; border:1px solid #ddd;"></textarea>-->
+          {{form.con}}
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div>
+        {{form.u}}
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>状态：</label>
+        </div>
+        <div class="field">
+          <!--<input type="" class="input w50">-->
+          {{form.status}}
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="clear"></div>
+
+      <div class="form-group">
+        <div class="label">
+          <label></label>
+        </div>
+        <div class="field">
+          <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+</body></html>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+<script>
+$=django.jQuery
+$(function () {
+    $("#id_c").on("change",function () {
+        $.ajax({
+            url:'/pingtai/getKeyword/',
+            type:'post',
+            data:{"c":$(this).val()},
+            success:function (e) {
+                $("#id_k>option").detach()
+                let str=""
+                for(i in e){
+                    str+=`<option value='${i}'>${e[i]}</option>`
+                }
+                $("#id_k").html(str)
+            }
+        })
+    })
+})
+</script>

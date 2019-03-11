@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>个人主页</title>
+  {% load static %}
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <link rel="stylesheet" href="{% static 'self/assets/css/amazeui.min.css' %}">
+  <link rel="stylesheet" href="{% static 'self/assets/css/app.css' %}">
+</head>
+
+<body id="blog">
+
+<!-- nav start -->
+<nav class="am-g am-g-fixed blog-fixed blog-nav">
+<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only blog-button" data-am-collapse="{target: '#blog-collapse'}" ></button>
+
+  <div class="am-collapse am-topbar-collapse" id="blog-collapse">
+    <ul class="am-nav am-nav-pills am-topbar-nav">
+      <li class="am-active"><a href="{% url 'self:index'%}">首页</a></li>
+      <li><a href="{% url 'pingtai:index'%}">回到博客</a></li>
+      <!--<li><a href="lw-article-fullwidth.html">更新</a></li>-->
+      <li><a href="{% url 'self:liuyan'%}">留言</a></li>
+      <li><a href="{% url 'self:lianjie'%}">链接</a></li>
+      <li><a href="{% url 'self:loginout'%}">退出</a></li>
+      <li><a href="{% url 'self:guanli'%}">管理</a></li>
+    </ul>
+    <form class="am-topbar-form am-topbar-right am-form-inline" role="search">
+      <div class="am-form-group">
+        <input type="text" class="am-form-field am-input-sm" placeholder="搜索">
+      </div>
+    </form>
+  </div>
+</nav>
+<!-- content srart -->
+<div class="am-g am-g-fixed blog-fixed blog-content">
+    <div class="am-u-md-8 am-u-sm-12">
+        <div class="am-g blog-author blog-article-margin">
+          <hr>
+          <h1 style="color: #0f9ae0">链接</h1>
+          <h1>LIFE BLOG</h1>
+          <div class="am-g blog-author blog-article-margin">
+              <div class="am-u-sm-3 am-u-md-3 am-u-lg-2">
+                <img src="{% static 'self/assets/i/f15.jpg' %}" alt="" class="blog-author-img am-circle">
+              </div>
+              <div class="am-u-sm-9 am-u-md-9 am-u-lg-10">
+              <h3><a href=""><span class="blog-color">Amazeui</span></a></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+              <div class="am-u-sm-3 am-u-md-3 am-u-lg-2">
+                <img src="{% static 'self/assets/i/f10.jpg' %}" alt="" class="blog-author-img am-circle">
+              </div>
+              <div class="am-u-sm-9 am-u-md-9 am-u-lg-10">
+              <h3><a href=""><span class="blog-color">Meow</span></a></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+            <div class="am-u-sm-3 am-u-md-3 am-u-lg-2">
+                <img src="{% static 'self/assets/i/f12.jpg' %}" alt="" class="blog-author-img am-circle">
+              </div>
+              <div class="am-u-sm-9 am-u-md-9 am-u-lg-10">
+              <h3><a href=""><span class="blog-color">Timo</span></a></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+            <div class="am-u-sm-3 am-u-md-3 am-u-lg-2">
+                <img src="{% static 'self/assets/i/f16.jpg' %}" alt="" class="blog-author-img am-circle">
+              </div>
+              <div class="am-u-sm-9 am-u-md-9 am-u-lg-10">
+              <h3><a href=""><span class="blog-color">Yuanyuan</span></a></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="am-u-md-4 am-u-sm-12 blog-sidebar">
+        <div class="blog-sidebar-widget blog-bor">
+            <h2 class="blog-text-center blog-title"><span>About</span></h2>
+            <img src="{% static 'self/assets/i/f14.jpg' %}" alt="about me" class="blog-entry-img" >
+            <p>妹纸</p>
+            <p>{{name}}</p>
+        </div>
+        <div class="blog-sidebar-widget blog-bor">
+            <h2 class="blog-text-center blog-title"><span>Contact ME</span></h2>
+            <p>
+                <a href=""><span class="am-icon-qq am-icon-fw am-primary blog-icon"></span></a>
+                <a href=""><span class="am-icon-github am-icon-fw blog-icon"></span></a>
+                <a href=""><span class="am-icon-weibo am-icon-fw blog-icon"></span></a>
+                <a href=""><span class="am-icon-reddit am-icon-fw blog-icon"></span></a>
+                <a href=""><span class="am-icon-weixin am-icon-fw blog-icon"></span></a>
+            </p>
+        </div>
+    </div>
+</div>
+<!-- content end -->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="{% static 'self/assets/js/jquery.min.js' %}"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="{% static 'self/assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'self/assets/js/modernizr.js' %}"></script>
+<script src="{% static 'self/assets/js/amazeui.ie8polyfill.min.js' %}"></script>
+<![endif]-->
+<script src="{% static 'self/assets/js/amazeui.min.js' %}"></script>
+</body>
+</html>
+

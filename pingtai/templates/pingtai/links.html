@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  {% load static %}
+  <script src="{% static 'pingtai/js/jquery.min.js' %}"></script>
+</head>
+<body>
+<div class="fy">
+  <h2>录入房源</h2>
+</div>
+<form action="{% url 'pingtai:links' %}" method="post">
+  {% csrf_token %}
+  <div class="dist">
+    区域:
+    <select name="dist">
+      <option value="dist_chaoyang">朝阳</option>
+      <option value="dist_dongcheng">城东</option>
+      <option value="dist_fengtai">丰台</option>
+      <option value="dist_haidian">海淀</option>
+      <option value="dist_shijingshan">石景山</option>
+      <option value="dist_xicheng">西城</option>
+    </select>
+  </div>
+     <div class="roomnum">
+      几室:
+       <select name="roomnum" id="roomnum">
+        <option value="1" >一室</option>
+        <option value="2" >二室</option>
+        <option value="3" >三室</option>
+        <option value="4" >四室</option>
+        <option value="5" >五室</option>
+      </select>
+    </div>
+      <div class="halls">
+    几厅:
+      <select name="halls" id="halls">
+        <option value="0" >0厅</option>
+        <option value="1" >1厅</option>
+        <option value="2" >2厅</option>
+        <option value="3" >3厅</option>
+      </select>
+    </div>
+   <div class="area">
+    面积:
+    <input type="text" name="area" >
+  </div>
+  <div class="floor">
+    楼层:
+    <select name="floor" >
+      <option value="floor_low" >低楼层</option>
+      <option value="floor_middle" >中楼层</option>
+      <option value="floor_high" >高楼层</option>
+    </select>
+  </div>
+  <div class="subway" >
+    是否靠近地铁:
+        <input type="radio" name="subway" value="1">是
+        <input type="radio" name="subway" value="0">否
+  </div>
+   <div class="school">
+    是否靠近学校:
+        <input type="radio" name="school" value="1">是
+        <input type="radio" name="school" value="0">否
+  </div>
+  <button type="submit">提交</button>
+  <div class="price">
+    预测售价:￥{{price}}元/㎡
+ </div>
+</form>
+
+</body>
+</html>
+<script>
+
+</script>
+

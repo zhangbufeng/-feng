@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title>网站信息</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'self/css/pintuer.css' %}">
+    <link rel="stylesheet" href="{% static 'self/css/admin.css' %}">
+    <script src="{% static 'self/js/jquery-3.2.1.js' %}"></script>
+    <script src="{% static 'self/js/pintuer.js' %}"></script>
+</head>
+<body>
+<div class="panel admin-panel">
+  <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 网站信息</strong></div>
+  <div class="body-content">
+    <div><img src="" alt="" id="img" width="50" height="50"></div>
+    <form  class="form-x" enctype="multipart/form-data" id="uploadForm">
+      {% csrf_token %}
+      <div class="form-group">
+        <div class="label">
+          <label>头像：</label>
+        </div>
+        <div class="field">
+          <input type="file" id="upload" name="upload" class="input tips" style="width:25%; float:left;" value="" data-toggle="hover" data-place="right" data-image="" />
+        </div>
+      </div>
+    </form>
+    <form method="post" class="form-x" action="" >
+
+      <div class="form-group">
+        <div class="label">
+          <label>网站标题：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input" name="stitle" value="" />
+          <div class="tips"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="label">
+          <label>网站域名：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input" name="surl" value="" />
+        </div>
+      </div>
+      <div class="form-group" style="display:none">
+        <div class="label">
+          <label>副加标题：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input" name="sentitle" value="" />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>网站关键字：</label>
+        </div>
+        <div class="field">
+          <textarea class="input" name="skeywords" style="height:80px"></textarea>
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>网站描述：</label>
+        </div>
+        <div class="field">
+          <textarea class="input" name="sdescription"></textarea>
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>联系人：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input" name="s_name" value="" />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>手机：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input" name="s_phone" value="" />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>电话：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input" name="s_tel" value="" />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group" style="display:none;">
+        <div class="label">
+          <label>400电话：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input" name="s_400" value="" />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>传真：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input" name="s_fax" value="" />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>QQ：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input" name="s_qq" value="" />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group" style="display:none">
+        <div class="label">
+          <label>QQ群：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input" name="s_qqu" value="" />
+          <div class="tips"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="label">
+          <label>Email：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input" name="s_email" value="" />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>地址：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input" name="s_address" value="" />
+          <div class="tips"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="label">
+          <label>底部信息：</label>
+        </div>
+        <div class="field">
+          <textarea name="scopyright" class="input" style="height:120px;"></textarea>
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label></label>
+        </div>
+        <div class="field">
+          <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</body></html>
+<script>
+  var img=$("#upload")
+  img.on("change",function(){
+      if(img.val()){
+          $.ajax({
+              url:"{% url 'self:img' %}",
+              type:"post",
+              processData:false,
+              contentType:false,
+              data:new FormData($("#uploadForm")[0]),
+              success:function(e){
+                  $("#img").attr("src",e.src)
+              }
+          })
+      }
+  })
+</script>

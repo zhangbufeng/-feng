@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>申请开通博客</title>
+</head>
+<body>
+  <div class="top">
+    <div class="yuan"></div>
+    <span>申请开通博客</span>
+  </div>
+  <div class="content">
+    <div class="one">
+      <span>本博客网站是面向程序员的高质量IT技术学习与分享平台，博客是学习与分享知识的工具。</span>
+    </div>
+    <div class="two">
+      <span>博客申请由人工审核，请认真前些您的申请理由，说明您在博客主要分享哪方面的内容。</span>
+    </div>
+
+    <form action="/pingtai/kaitong/" method="post">
+      {% csrf_token %}
+      {{form.u}}
+      {{form.sh}}
+      <span>真实姓名：</span>
+      {{form.realname}}<br>
+      <!--<input type="text"><br>-->
+      <span>公&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp司：</span>
+      {{form.company}}<br>
+      <!--<input type="text"><br>-->
+      <span>职&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp位：</span>
+      {{form.position}}<br>
+      <!--<input type="text"><br>-->
+      <div class="box">技术兴趣：</div>
+      {{form.honny}}<br>
+      <!--<div class="te"><textarea name="" id="" cols="90" rows="5"></textarea></div>-->
+       <div class="liyou">
+        <span>申请理由:</span><br>
+        {{form.reason}}
+        <!--<textarea name="" id="" cols="100" rows="9"></textarea>-->
+      </div>
+      <button >提交</button>
+    </form>
+  </div>
+</body>
+</html>
+
+<style>
+  .top{
+    width: 60%;
+    height: 30px;
+    margin-left: 100px;
+    border-bottom: 2px solid #BDCFDC;
+    line-height: 40px;
+    overflow: hidden;
+  }
+  .top .yuan{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #2c81ba;
+    margin-top: 15px;
+    margin-right: 5px;
+    float: left;
+  }
+  .content{
+     width: 70%;
+    height: 30px;
+    margin-left: 100px;
+    margin-top: 10px;
+  }
+  .content .one{
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+   .content .two{
+    margin-bottom: 10px;
+  }
+   .content .liyou{
+    margin-bottom: 20px;
+  }
+   .content input{
+    margin-left: 5px;
+     margin-bottom: 5px;
+  }
+  .content .box{
+    float: left;
+  }
+  .te textarea{
+    margin-left: 8px;
+    margin-bottom: 10px;
+  }
+  .content button{
+    width: 100px;
+    margin-left: 300px;
+  }
+</style>
